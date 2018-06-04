@@ -1,0 +1,3 @@
+module camera_frame_monitor(
+	input clk, reset,
+	

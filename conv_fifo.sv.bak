@@ -1,0 +1,8 @@
+module conv_fifo(
+	input clk, reset, enable,
+	output valid,
+	input [7:0] data,
+	output [7:0] first, second, third
+	);
+	
+endmodule

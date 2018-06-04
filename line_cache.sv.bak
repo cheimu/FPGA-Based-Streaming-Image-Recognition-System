@@ -1,0 +1,26 @@
+// Module courtesy of Jared
+module line_cache(
+	input							clk,
+	input				[9:0]		write_adx,
+	input				[7:0]		idata,
+	input							we, 			// Write when high
+	input				[9:0]		read_adx,
+	output	logic	[7:0]		odata
+);
+	parameter WIDTH = 640;
+	
+	logic		[7:0]		mem [WIDTH-1:0];
+	
+	always_ff@(posedge clk) begin
+		odata = mem[read_adx];
+	end
+	
+	always_ff@(posedge clk) begin
+		if(we) begin
+			mem[write_adx] <= idata;
+		end
+		else begin
+			mem[write_adx] <= mem[write_adx];
+		end
+	end
+endmodule

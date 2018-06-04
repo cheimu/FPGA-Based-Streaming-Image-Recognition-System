@@ -1,0 +1,14 @@
+module convert_raw_frame_to_gray(
+	input clk, reset, finished
+	output read_en, write_en,
+	input [9:0] raw_data,
+	output [7:0] gray_data);
+	
+	
+	
+	
+	always_ff @(posedge clk) begin
+	
+	end
+	
+endmodule

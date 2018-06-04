@@ -1,0 +1,4 @@
+module #(WIDTH=1) state_based_mux(
+	input [1:0] state,
+	input [WIDTH-1:0] cam, conv, vga,
+	output [WIDTH-1:0] output);

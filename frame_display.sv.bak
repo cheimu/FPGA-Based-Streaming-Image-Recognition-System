@@ -1,0 +1,174 @@
+module frame_display(
+	input						CLOCK_50,
+	input						KEY0,
+/*******************************************************************************
+												SDRAM IO
+*******************************************************************************/
+	output	[11:0]		wire_addr,           //  wire.addr
+	output	[1:0]			wire_ba,             //      .ba
+	output					wire_cas_n,          //      .cas_n
+	output					wire_cke,            //      .cke
+	output					wire_cs_n,           //      .cs_n
+	inout		[7:0]			wire_dq,             //      .dq
+	output					wire_dqm,            //      .dqm
+	output					wire_ras_n,          //      .ras_n
+	output					wire_we_n,           //      .we_n
+	
+/*******************************************************************************
+												VGA IO
+*******************************************************************************/
+	output	[7:0]			VGA_R,	
+	output	[7:0]			VGA_G,
+	output	[7:0]			VGA_B,
+	output					VGA_BLANK_N,
+	output					VGA_CLK,
+	output					VGA_HS,
+	output					VGA_SYNC_N,
+	output					VGA_VS
+);
+
+	parameter WIDTH = 80, HEIGHT = 60;
+	
+/*******************************************************************************
+										  System Clocks
+*******************************************************************************/
+	reg						CLOCK_25;
+	wire						CLOCK_25_p90;
+	wire						CLOCK_100;
+	wire						CLOCK_50_p90;
+	wire						CLOCK_143;
+
+	assign CLOCK_25_p90 = CLOCK_50 ^ CLOCK_25;
+	assign CLOCK_50_p90 = CLOCK_100 ^ CLOCK_50;
+	
+	always_ff@(posedge CLOCK_50) begin
+		if(~rst_n) begin
+			CLOCK_25 <= 1'b0; // Sync CLOCK_25 and CLOCK_50
+		end
+		else begin
+			CLOCK_25 <= ~CLOCK_25;
+		end
+	end
+		
+/*******************************************************************************
+										  Input Debounce
+*******************************************************************************/
+	reg					key_debounce, rst_n;
+	
+	always_ff@(posedge CLOCK_50) begin
+		key_debounce	<= KEY0;
+		rst_n				<= key_debounce;
+	end
+	
+/*******************************************************************************
+											 VGA Driver
+*******************************************************************************/
+	wire		[9:0]		PIXEL_X;
+	wire		[8:0]		PIXEL_Y;
+	
+	wire		[7:0]		iRGB;
+	
+	video_driver #(WIDTH, HEIGHT) vga_driver(
+		CLOCK_50,
+		~rst_n,
+		PIXEL_X,
+		PIXEL_Y,
+		iRGB,
+		iRGB,
+		iRGB,
+		VGA_R,
+		VGA_G,
+		VGA_B,
+		VGA_BLANK_N,
+		VGA_CLK,
+		VGA_HS,
+		VGA_SYNC_N,
+		VGA_VS
+	);	
+	
+	
+/*******************************************************************************
+											 SDRAM Module
+*******************************************************************************/
+	wire		[7:0]		odata;
+	wire					odata_valid, waitrequest;
+	
+	reg		[21:0]	adx; // Behavior Defined in VGA driver
+	reg		[7:0]		idata; // Value assigned in VGA driver
+	wire					we, re;
+	
+	// write enable and read enable on alternating states
+	always_comb begin 
+		we =   CLOCK_25 | CLOCK_50;
+		re = ~(CLOCK_25 | CLOCK_50);
+	end
+	
+	// Concatonate Address for SDRAM Read and Write
+	always_ff@(posedge CLOCK_50_p90) begin
+		if(~rst_n) begin
+			adx <= 22'b0;
+		end
+		else begin
+			adx <= {3'b000, PIXEL_Y, PIXEL_X};
+		end
+	end
+	
+	// Data to be written to the SDRAM
+	always_ff@(posedge CLOCK_50_p90) begin
+		idata <= {PIXEL_X[7:4],PIXEL_Y[3:0]};
+	end
+	
+	// Contains a PLL for the SDRAM that also provides 100 MHz and 143 MHz clocks
+	sdram mem(
+		CLOCK_50,
+		CLOCK_100,
+		CLOCK_143,
+		rst_n,
+		adx,
+		1'b1,
+		1'b0,
+		idata,
+		re,
+		we,
+		odata,
+		odata_valid,
+		waitrequest,
+		wire_addr,
+		wire_ba,
+		wire_cas_n,
+		wire_cke,
+		wire_cs_n,
+		wire_dq,
+		wire_dqm,
+		wire_ras_n,
+		wire_we_n
+	);
+	/*
+	always_ff@(posedge CLOCK_25_p90) begin
+		if(~rst_n) begin
+			iRGB <= 8'b0;
+		end
+		else begin
+			iRGB <= odata;
+		end
+	end
+	*/
+/*******************************************************************************
+											 Line Buffer
+*******************************************************************************/
+	reg		[7:0]		temp_buf;
+	
+	always_ff@(negedge CLOCK_25) begin
+		temp_buf <= odata;
+	end
+	
+	line_cache	#(WIDTH) line_buf(
+		CLOCK_25_p90,
+		PIXEL_X-1,
+		temp_buf,
+		(CLOCK_50 == 1'b0 && CLOCK_25 == 1'b0),
+		PIXEL_X,
+		iRGB
+	);
+
+endmodule

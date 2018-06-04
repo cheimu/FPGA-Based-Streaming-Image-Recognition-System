@@ -1,0 +1,14 @@
+module raw_2_grayscale_filter(
+	input clk, reset,
+	input [9:0] raw_data,
+	output [7:0] grayscale_data
+	);
+
+	logic [641:0][9:0] buffer;
+	
+	always_ff @(posedge clk) begin
+		if (reset) buffer <= {642{10'b0}};
+		else buffer <= {buffer[640:0], raw_data};
+	end
+	
+endmodule

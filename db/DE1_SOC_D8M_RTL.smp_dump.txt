@@ -1,0 +1,19 @@
+
+State Machine - |DE1_SOC_D8M_RTL|frame_display:frame_controller|ps
+Name ps.WRITE ps.GO ps.WAIT 
+ps.WRITE 0 0 0 
+ps.WAIT 1 0 1 
+ps.GO 1 1 0 
+
+State Machine - |DE1_SOC_D8M_RTL|square_convolution:s_convolver|ps
+Name ps.STOP ps.W ps.R_W ps.DELAY 
+ps.DELAY 0 0 0 0 
+ps.R_W 0 0 1 1 
+ps.W 0 1 0 1 
+ps.STOP 1 0 0 1 
+
+State Machine - |DE1_SOC_D8M_RTL|camera_frame_monitor:cam_monitor|ps
+Name ps.SOF ps.EOF ps.RESET 
+ps.RESET 0 0 0 
+ps.SOF 1 0 1 
+ps.EOF 0 1 1 

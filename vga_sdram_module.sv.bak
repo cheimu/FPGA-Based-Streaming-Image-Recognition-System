@@ -1,0 +1,4 @@
+module vga_sdram_module(
+	input CLOCK_50, reset,
+	input [9:0] x, y,
+	output [7:0] r, g, b); 

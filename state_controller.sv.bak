@@ -1,0 +1,13 @@
+module state_controller(
+	input clk, reset,
+	output [1:0] state,
+	// clock information
+	
+	// convolution information
+	
+	// vga information
+	);
+	
+	parameter [1:0] CAM=2'b00, CONV=2'b01, VGA=2'b10;
+	
+endmodule

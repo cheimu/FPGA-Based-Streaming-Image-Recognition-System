@@ -1,0 +1,31 @@
+# # File gsaved with Nlview version 6.3.8  2013-12-19 bk=1.2992 VDI=34 GEI=35
+# 
+preplace inst nios.data_sig -pg 1 -lvl 3 -y 130
+preplace inst nios.switches -pg 1 -lvl 3 -y 710
+preplace inst nios.q_sig -pg 1 -lvl 3 -y 610
+preplace inst nios -pg 1 -lvl 1 -y 40 -regy -20
+preplace inst nios.wren -pg 1 -lvl 3 -y 810
+preplace inst nios.interlock_output -pg 1 -lvl 3 -y 410
+preplace inst nios.clk_0 -pg 1 -lvl 1 -y 370
+preplace inst nios.onchip_mem -pg 1 -lvl 3 -y 330
+preplace inst nios.led_pio -pg 1 -lvl 3 -y 510
+preplace inst nios.jtag_uart -pg 1 -lvl 3 -y 230
+preplace inst nios.interlock_input -pg 1 -lvl 3 -y 910
+preplace inst nios.cpu -pg 1 -lvl 2 -y 310
+preplace inst nios.address_sig -pg 1 -lvl 3 -y 30
+preplace netloc EXPORT<net_container>nios</net_container>(SLAVE)nios.address_sig_external_connection,(SLAVE)address_sig.external_connection) 1 0 3 NJ 60 NJ 60 NJ
+preplace netloc EXPORT<net_container>nios</net_container>(SLAVE)interlock_input.external_connection,(SLAVE)nios.interlock_input_external_connection) 1 0 3 NJ 940 NJ 940 NJ
+preplace netloc EXPORT<net_container>nios</net_container>(SLAVE)led_pio.external_connection,(SLAVE)nios.led_pio_external_connection) 1 0 3 NJ 540 NJ 540 NJ
+preplace netloc EXPORT<net_container>nios</net_container>(SLAVE)nios.interlock_output_external_connection,(SLAVE)interlock_output.external_connection) 1 0 3 NJ 440 NJ 440 NJ
+preplace netloc INTERCONNECT<net_container>nios</net_container>(SLAVE)onchip_mem.s1,(SLAVE)wren.s1,(MASTER)cpu.instruction_master,(SLAVE)cpu.jtag_debug_module,(SLAVE)q_sig.s1,(SLAVE)address_sig.s1,(SLAVE)led_pio.s1,(MASTER)cpu.data_master,(SLAVE)switches.s1,(SLAVE)interlock_input.s1,(SLAVE)jtag_uart.avalon_jtag_slave,(SLAVE)interlock_output.s1,(SLAVE)data_sig.s1) 1 1 2 450 980 740
+preplace netloc EXPORT<net_container>nios</net_container>(SLAVE)switches.external_connection,(SLAVE)nios.switches_external_connection) 1 0 3 NJ 740 NJ 740 NJ
+preplace netloc EXPORT<net_container>nios</net_container>(SLAVE)clk_0.clk_in_reset,(SLAVE)nios.reset) 1 0 1 NJ
+preplace netloc EXPORT<net_container>nios</net_container>(SLAVE)data_sig.external_connection,(SLAVE)nios.data_sig_external_connection) 1 0 3 NJ 160 NJ 160 NJ
+preplace netloc EXPORT<net_container>nios</net_container>(SLAVE)clk_0.clk_in,(SLAVE)nios.clk) 1 0 1 NJ
+preplace netloc EXPORT<net_container>nios</net_container>(SLAVE)wren.external_connection,(SLAVE)nios.wren_external_connection) 1 0 3 NJ 840 NJ 840 NJ
+preplace netloc POINT_TO_POINT<net_container>nios</net_container>(SLAVE)jtag_uart.irq,(MASTER)cpu.d_irq) 1 2 1 700
+preplace netloc EXPORT<net_container>nios</net_container>(SLAVE)q_sig.external_connection,(SLAVE)nios.q_sig_external_connection) 1 0 3 NJ 640 NJ 640 NJ
+preplace netloc FAN_OUT<net_container>nios</net_container>(SLAVE)data_sig.reset,(SLAVE)onchip_mem.reset1,(MASTER)clk_0.clk_reset,(SLAVE)jtag_uart.reset,(SLAVE)led_pio.reset,(SLAVE)cpu.reset_n,(SLAVE)interlock_input.reset,(SLAVE)wren.reset,(SLAVE)switches.reset,(SLAVE)q_sig.reset,(SLAVE)interlock_output.reset,(SLAVE)address_sig.reset) 1 1 2 430 960 760
+preplace netloc FAN_OUT<net_container>nios</net_container>(SLAVE)switches.clk,(SLAVE)address_sig.clk,(SLAVE)led_pio.clk,(SLAVE)jtag_uart.clk,(SLAVE)interlock_input.clk,(MASTER)clk_0.clk,(SLAVE)cpu.clk,(SLAVE)data_sig.clk,(SLAVE)q_sig.clk,(SLAVE)interlock_output.clk,(SLAVE)onchip_mem.clk1,(SLAVE)wren.clk) 1 1 2 410 860 720
+levelinfo -pg 1 0 200 950
+levelinfo -hier nios 210 240 480 790 940

@@ -1,0 +1,5 @@
+module horizontal_convolution(
+	input clk, reset,
+	output read_request, write_request,
+	input [7:0] pixel_i,
+	output [7:0] pixel_o);

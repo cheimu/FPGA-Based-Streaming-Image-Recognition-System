@@ -1,0 +1,42 @@
+module filter_sel(clk_i, reset_i, switch, filter, v_o);
+
+input logic clk_i, reset_i;
+input logic [1:0] switch;
+output logic [2:0][2:0][7:0] filter;
+output logic v_o;
+
+always_ff @(posedge clk_i) begin
+if (!reset_i) begin
+filter <= {{8'b0,8'b0,8'b0},{8'b0,8'b0,8'b0},{8'b0,8'b0,8'b0}};
+v_o <= 0;
+end else begin
+case(switch)
+2'b00: begin // identity
+filter <= {{8'b0,8'b0,8'b0},{8'b0,8'b1,8'b0},{8'b0,8'b0,8'b0}};
+v_o <= 1;
+end
+
+2'b01: begin // highpass
+filter <= {{8'b0,8'b10000001,8'b0},{8'b10000001,8'd4,8'b10000001},{8'b0,8'b10000001,8'b0}};
+v_o <= 1;
+end
+
+2'b10: begin // sharpen
+filter <= {{8'b0,8'b10000001,8'b0},{8'b10000001,8'd5,8'b10000001},{8'b0,8'b10000001,8'b0}};
+v_o <= 1;
+end
+
+2'b11: begin // Emboss
+filter <= {{8'b10000010,8'b10000001,8'b0},{8'b10000001,8'b1,8'b1},{8'b0,8'b1,8'd2}};
+v_o <= 1;
+end
+
+default: begin
+filter <= {{8'b0,8'b0,8'b0},{8'b0,8'b1,8'b0},{8'b0,8'b0,8'b0}};
+v_o <= 0;
+end
+endcase
+end
+end
+
+endmodule

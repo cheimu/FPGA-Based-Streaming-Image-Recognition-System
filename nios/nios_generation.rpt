@@ -1,0 +1,152 @@
+Info: Starting: Create block symbol file (.bsf)
+Info: qsys-generate C:\Users\zjc19\Desktop\EE526\526_conv\nios.qsys --block-symbol-file --output-directory=C:\Users\zjc19\Desktop\EE526\526_conv\nios --family="Cyclone V" --part=5CSEMA5F31C6
+Progress: Loading 526_conv/nios.qsys
+Progress: Reading input file
+Progress: Adding address_sig [altera_avalon_pio 17.1]
+Progress: Parameterizing module address_sig
+Progress: Adding clk_0 [clock_source 17.1]
+Progress: Parameterizing module clk_0
+Progress: Adding cpu [altera_nios2_gen2 17.1]
+Progress: Parameterizing module cpu
+Progress: Adding data_sig [altera_avalon_pio 17.1]
+Progress: Parameterizing module data_sig
+Progress: Adding filter [altera_avalon_pio 17.1]
+Progress: Parameterizing module filter
+Progress: Adding jtag_uart [altera_avalon_jtag_uart 17.1]
+Progress: Parameterizing module jtag_uart
+Progress: Adding led_pio [altera_avalon_pio 17.1]
+Progress: Parameterizing module led_pio
+Progress: Adding onchip_mem [altera_avalon_onchip_memory2 17.1]
+Progress: Parameterizing module onchip_mem
+Progress: Adding q_sig [altera_avalon_pio 17.1]
+Progress: Parameterizing module q_sig
+Progress: Adding switches [altera_avalon_pio 17.1]
+Progress: Parameterizing module switches
+Progress: Adding wren [altera_avalon_pio 17.1]
+Progress: Parameterizing module wren
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: nios.jtag_uart: JTAG UART IP input clock need to be at least double (2x) the operating frequency of JTAG TCK on board
+Info: nios.q_sig: PIO inputs are not hardwired in test bench. Undefined values will be read from PIO inputs during simulation.
+Info: nios.switches: PIO inputs are not hardwired in test bench. Undefined values will be read from PIO inputs during simulation.
+Info: qsys-generate succeeded.
+Info: Finished: Create block symbol file (.bsf)
+Info: 
+Info: Starting: Create HDL design files for synthesis
+Info: qsys-generate C:\Users\zjc19\Desktop\EE526\526_conv\nios.qsys --synthesis=VERILOG --output-directory=C:\Users\zjc19\Desktop\EE526\526_conv\nios\synthesis --family="Cyclone V" --part=5CSEMA5F31C6
+Progress: Loading 526_conv/nios.qsys
+Progress: Reading input file
+Progress: Adding address_sig [altera_avalon_pio 17.1]
+Progress: Parameterizing module address_sig
+Progress: Adding clk_0 [clock_source 17.1]
+Progress: Parameterizing module clk_0
+Progress: Adding cpu [altera_nios2_gen2 17.1]
+Progress: Parameterizing module cpu
+Progress: Adding data_sig [altera_avalon_pio 17.1]
+Progress: Parameterizing module data_sig
+Progress: Adding filter [altera_avalon_pio 17.1]
+Progress: Parameterizing module filter
+Progress: Adding jtag_uart [altera_avalon_jtag_uart 17.1]
+Progress: Parameterizing module jtag_uart
+Progress: Adding led_pio [altera_avalon_pio 17.1]
+Progress: Parameterizing module led_pio
+Progress: Adding onchip_mem [altera_avalon_onchip_memory2 17.1]
+Progress: Parameterizing module onchip_mem
+Progress: Adding q_sig [altera_avalon_pio 17.1]
+Progress: Parameterizing module q_sig
+Progress: Adding switches [altera_avalon_pio 17.1]
+Progress: Parameterizing module switches
+Progress: Adding wren [altera_avalon_pio 17.1]
+Progress: Parameterizing module wren
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: nios.jtag_uart: JTAG UART IP input clock need to be at least double (2x) the operating frequency of JTAG TCK on board
+Info: nios.q_sig: PIO inputs are not hardwired in test bench. Undefined values will be read from PIO inputs during simulation.
+Info: nios.switches: PIO inputs are not hardwired in test bench. Undefined values will be read from PIO inputs during simulation.
+Info: nios: Generating nios "nios" for QUARTUS_SYNTH
+Info: address_sig: Starting RTL generation for module 'nios_address_sig'
+Info: address_sig:   Generation command is [exec C:/intelfpga_lite/17.1/quartus/bin64/perl/bin/perl.exe -I C:/intelfpga_lite/17.1/quartus/bin64/perl/lib -I C:/intelfpga_lite/17.1/quartus/sopc_builder/bin/europa -I C:/intelfpga_lite/17.1/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga_lite/17.1/quartus/sopc_builder/bin -I C:/intelfpga_lite/17.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/intelfpga_lite/17.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/intelfpga_lite/17.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=nios_address_sig --dir=C:/Users/zjc19/AppData/Local/Temp/alt7685_8110317423460828490.dir/0002_address_sig_gen/ --quartus_dir=C:/intelfpga_lite/17.1/quartus --verilog --config=C:/Users/zjc19/AppData/Local/Temp/alt7685_8110317423460828490.dir/0002_address_sig_gen//nios_address_sig_component_configuration.pl  --do_build_sim=0  ]
+Info: address_sig: Done RTL generation for module 'nios_address_sig'
+Info: address_sig: "nios" instantiated altera_avalon_pio "address_sig"
+Info: cpu: "nios" instantiated altera_nios2_gen2 "cpu"
+Info: data_sig: Starting RTL generation for module 'nios_data_sig'
+Info: data_sig:   Generation command is [exec C:/intelfpga_lite/17.1/quartus/bin64/perl/bin/perl.exe -I C:/intelfpga_lite/17.1/quartus/bin64/perl/lib -I C:/intelfpga_lite/17.1/quartus/sopc_builder/bin/europa -I C:/intelfpga_lite/17.1/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga_lite/17.1/quartus/sopc_builder/bin -I C:/intelfpga_lite/17.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/intelfpga_lite/17.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/intelfpga_lite/17.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=nios_data_sig --dir=C:/Users/zjc19/AppData/Local/Temp/alt7685_8110317423460828490.dir/0003_data_sig_gen/ --quartus_dir=C:/intelfpga_lite/17.1/quartus --verilog --config=C:/Users/zjc19/AppData/Local/Temp/alt7685_8110317423460828490.dir/0003_data_sig_gen//nios_data_sig_component_configuration.pl  --do_build_sim=0  ]
+Info: data_sig: Done RTL generation for module 'nios_data_sig'
+Info: data_sig: "nios" instantiated altera_avalon_pio "data_sig"
+Info: jtag_uart: Starting RTL generation for module 'nios_jtag_uart'
+Info: jtag_uart:   Generation command is [exec C:/intelfpga_lite/17.1/quartus/bin64/perl/bin/perl.exe -I C:/intelfpga_lite/17.1/quartus/bin64/perl/lib -I C:/intelfpga_lite/17.1/quartus/sopc_builder/bin/europa -I C:/intelfpga_lite/17.1/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga_lite/17.1/quartus/sopc_builder/bin -I C:/intelfpga_lite/17.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/intelfpga_lite/17.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart -- C:/intelfpga_lite/17.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart/generate_rtl.pl --name=nios_jtag_uart --dir=C:/Users/zjc19/AppData/Local/Temp/alt7685_8110317423460828490.dir/0004_jtag_uart_gen/ --quartus_dir=C:/intelfpga_lite/17.1/quartus --verilog --config=C:/Users/zjc19/AppData/Local/Temp/alt7685_8110317423460828490.dir/0004_jtag_uart_gen//nios_jtag_uart_component_configuration.pl  --do_build_sim=0  ]
+Info: jtag_uart: Done RTL generation for module 'nios_jtag_uart'
+Info: jtag_uart: "nios" instantiated altera_avalon_jtag_uart "jtag_uart"
+Info: onchip_mem: Starting RTL generation for module 'nios_onchip_mem'
+Info: onchip_mem:   Generation command is [exec C:/intelfpga_lite/17.1/quartus/bin64/perl/bin/perl.exe -I C:/intelfpga_lite/17.1/quartus/bin64/perl/lib -I C:/intelfpga_lite/17.1/quartus/sopc_builder/bin/europa -I C:/intelfpga_lite/17.1/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga_lite/17.1/quartus/sopc_builder/bin -I C:/intelfpga_lite/17.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/intelfpga_lite/17.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2 -- C:/intelfpga_lite/17.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2/generate_rtl.pl --name=nios_onchip_mem --dir=C:/Users/zjc19/AppData/Local/Temp/alt7685_8110317423460828490.dir/0005_onchip_mem_gen/ --quartus_dir=C:/intelfpga_lite/17.1/quartus --verilog --config=C:/Users/zjc19/AppData/Local/Temp/alt7685_8110317423460828490.dir/0005_onchip_mem_gen//nios_onchip_mem_component_configuration.pl  --do_build_sim=0  ]
+Info: onchip_mem: Done RTL generation for module 'nios_onchip_mem'
+Info: onchip_mem: "nios" instantiated altera_avalon_onchip_memory2 "onchip_mem"
+Info: q_sig: Starting RTL generation for module 'nios_q_sig'
+Info: q_sig:   Generation command is [exec C:/intelfpga_lite/17.1/quartus/bin64/perl/bin/perl.exe -I C:/intelfpga_lite/17.1/quartus/bin64/perl/lib -I C:/intelfpga_lite/17.1/quartus/sopc_builder/bin/europa -I C:/intelfpga_lite/17.1/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga_lite/17.1/quartus/sopc_builder/bin -I C:/intelfpga_lite/17.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/intelfpga_lite/17.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/intelfpga_lite/17.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=nios_q_sig --dir=C:/Users/zjc19/AppData/Local/Temp/alt7685_8110317423460828490.dir/0006_q_sig_gen/ --quartus_dir=C:/intelfpga_lite/17.1/quartus --verilog --config=C:/Users/zjc19/AppData/Local/Temp/alt7685_8110317423460828490.dir/0006_q_sig_gen//nios_q_sig_component_configuration.pl  --do_build_sim=0  ]
+Info: q_sig: Done RTL generation for module 'nios_q_sig'
+Info: q_sig: "nios" instantiated altera_avalon_pio "q_sig"
+Info: switches: Starting RTL generation for module 'nios_switches'
+Info: switches:   Generation command is [exec C:/intelfpga_lite/17.1/quartus/bin64/perl/bin/perl.exe -I C:/intelfpga_lite/17.1/quartus/bin64/perl/lib -I C:/intelfpga_lite/17.1/quartus/sopc_builder/bin/europa -I C:/intelfpga_lite/17.1/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga_lite/17.1/quartus/sopc_builder/bin -I C:/intelfpga_lite/17.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/intelfpga_lite/17.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/intelfpga_lite/17.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=nios_switches --dir=C:/Users/zjc19/AppData/Local/Temp/alt7685_8110317423460828490.dir/0007_switches_gen/ --quartus_dir=C:/intelfpga_lite/17.1/quartus --verilog --config=C:/Users/zjc19/AppData/Local/Temp/alt7685_8110317423460828490.dir/0007_switches_gen//nios_switches_component_configuration.pl  --do_build_sim=0  ]
+Info: switches: Done RTL generation for module 'nios_switches'
+Info: switches: "nios" instantiated altera_avalon_pio "switches"
+Info: wren: Starting RTL generation for module 'nios_wren'
+Info: wren:   Generation command is [exec C:/intelfpga_lite/17.1/quartus/bin64/perl/bin/perl.exe -I C:/intelfpga_lite/17.1/quartus/bin64/perl/lib -I C:/intelfpga_lite/17.1/quartus/sopc_builder/bin/europa -I C:/intelfpga_lite/17.1/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga_lite/17.1/quartus/sopc_builder/bin -I C:/intelfpga_lite/17.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/intelfpga_lite/17.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/intelfpga_lite/17.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=nios_wren --dir=C:/Users/zjc19/AppData/Local/Temp/alt7685_8110317423460828490.dir/0008_wren_gen/ --quartus_dir=C:/intelfpga_lite/17.1/quartus --verilog --config=C:/Users/zjc19/AppData/Local/Temp/alt7685_8110317423460828490.dir/0008_wren_gen//nios_wren_component_configuration.pl  --do_build_sim=0  ]
+Info: wren: Done RTL generation for module 'nios_wren'
+Info: wren: "nios" instantiated altera_avalon_pio "wren"
+Info: avalon_st_adapter: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_001: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_002: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_003: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_004: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_005: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_006: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_007: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_008: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_009: Inserting error_adapter: error_adapter_0
+Info: mm_interconnect_0: "nios" instantiated altera_mm_interconnect "mm_interconnect_0"
+Info: irq_mapper: "nios" instantiated altera_irq_mapper "irq_mapper"
+Info: rst_controller: "nios" instantiated altera_reset_controller "rst_controller"
+Info: cpu: Starting RTL generation for module 'nios_cpu_cpu'
+Info: cpu:   Generation command is [exec C:/intelFPGA_lite/17.1/quartus/bin64//eperlcmd.exe -I C:/intelFPGA_lite/17.1/quartus/bin64//perl/lib -I C:/intelfpga_lite/17.1/quartus/sopc_builder/bin/europa -I C:/intelfpga_lite/17.1/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga_lite/17.1/quartus/sopc_builder/bin -I C:/intelfpga_lite/17.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/cpu_lib -I C:/intelfpga_lite/17.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/nios_lib -I C:/intelfpga_lite/17.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2 -I C:/intelfpga_lite/17.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2 -- C:/intelfpga_lite/17.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/generate_rtl.epl --name=nios_cpu_cpu --dir=C:/Users/zjc19/AppData/Local/Temp/alt7685_8110317423460828490.dir/0011_cpu_gen/ --quartus_bindir=C:/intelFPGA_lite/17.1/quartus/bin64/ --verilog --config=C:/Users/zjc19/AppData/Local/Temp/alt7685_8110317423460828490.dir/0011_cpu_gen//nios_cpu_cpu_processor_configuration.pl  --do_build_sim=0  ]
+Info: cpu: # 2018.06.03 17:10:00 (*) Starting Nios II generation
+Info: cpu: # 2018.06.03 17:10:00 (*)   Checking for plaintext license.
+Info: cpu: # 2018.06.03 17:10:00 (*)   Couldn't query license setup in Quartus directory C:/intelFPGA_lite/17.1/quartus/bin64/
+Info: cpu: # 2018.06.03 17:10:00 (*)   Defaulting to contents of LM_LICENSE_FILE environment variable
+Info: cpu: # 2018.06.03 17:10:00 (*)   LM_LICENSE_FILE environment variable is empty
+Info: cpu: # 2018.06.03 17:10:00 (*)   Plaintext license not found.
+Info: cpu: # 2018.06.03 17:10:00 (*)   No license required to generate encrypted Nios II/e.
+Info: cpu: # 2018.06.03 17:10:00 (*)   Elaborating CPU configuration settings
+Info: cpu: # 2018.06.03 17:10:00 (*)   Creating all objects for CPU
+Info: cpu: # 2018.06.03 17:10:01 (*)   Generating RTL from CPU objects
+Info: cpu: # 2018.06.03 17:10:01 (*)   Creating plain-text RTL
+Info: cpu: # 2018.06.03 17:10:02 (*) Done Nios II generation
+Info: cpu: Done RTL generation for module 'nios_cpu_cpu'
+Info: cpu: "cpu" instantiated altera_nios2_gen2_unit "cpu"
+Info: cpu_data_master_translator: "mm_interconnect_0" instantiated altera_merlin_master_translator "cpu_data_master_translator"
+Info: jtag_uart_avalon_jtag_slave_translator: "mm_interconnect_0" instantiated altera_merlin_slave_translator "jtag_uart_avalon_jtag_slave_translator"
+Info: cpu_data_master_agent: "mm_interconnect_0" instantiated altera_merlin_master_agent "cpu_data_master_agent"
+Info: jtag_uart_avalon_jtag_slave_agent: "mm_interconnect_0" instantiated altera_merlin_slave_agent "jtag_uart_avalon_jtag_slave_agent"
+Info: jtag_uart_avalon_jtag_slave_agent_rsp_fifo: "mm_interconnect_0" instantiated altera_avalon_sc_fifo "jtag_uart_avalon_jtag_slave_agent_rsp_fifo"
+Info: router: "mm_interconnect_0" instantiated altera_merlin_router "router"
+Info: router_001: "mm_interconnect_0" instantiated altera_merlin_router "router_001"
+Info: router_002: "mm_interconnect_0" instantiated altera_merlin_router "router_002"
+Info: router_003: "mm_interconnect_0" instantiated altera_merlin_router "router_003"
+Info: cmd_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "cmd_demux"
+Info: cmd_demux_001: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "cmd_demux_001"
+Info: cmd_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "cmd_mux"
+Info: cmd_mux_001: "mm_interconnect_0" instantiated altera_merlin_multiplexer "cmd_mux_001"
+Info: Reusing file C:/Users/zjc19/Desktop/EE526/526_conv/nios/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: rsp_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "rsp_demux"
+Info: rsp_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "rsp_mux"
+Info: Reusing file C:/Users/zjc19/Desktop/EE526/526_conv/nios/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: rsp_mux_001: "mm_interconnect_0" instantiated altera_merlin_multiplexer "rsp_mux_001"
+Info: Reusing file C:/Users/zjc19/Desktop/EE526/526_conv/nios/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: avalon_st_adapter: "mm_interconnect_0" instantiated altera_avalon_st_adapter "avalon_st_adapter"
+Info: error_adapter_0: "avalon_st_adapter" instantiated error_adapter "error_adapter_0"
+Info: nios: Done "nios" with 31 modules, 44 files
+Info: qsys-generate succeeded.
+Info: Finished: Create HDL design files for synthesis

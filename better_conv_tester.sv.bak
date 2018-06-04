@@ -1,0 +1,7 @@
+module conv_tester(
+	input clk, reset,
+	output read_enable, write_enable,
+	input [7:0] gray_in,
+	output [7:0] gray_out,
+	output conv_finished
+	);
